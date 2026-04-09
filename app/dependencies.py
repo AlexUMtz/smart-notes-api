@@ -22,7 +22,7 @@ def get_current_user(
     
     try:
         payload = decode_access_token(token)
-        email: str = payload.get
+        email: str = payload.get("sub")
         if email is None:
             raise credentials_exception
     except JWTError:
